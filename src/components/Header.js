@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 
 
-function Header() {
+function Header(props) {
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,7 +23,7 @@ function Header() {
                                 <a className="nav-link">Contact</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">Cart</a>
+                                <NavLink to="/cart" className="nav-link"></NavLink>Cart- {props.cart.length}<NavLink/>
                             </li>
                         </ul>
                     </div>

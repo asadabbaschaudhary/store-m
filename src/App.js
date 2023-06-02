@@ -13,6 +13,7 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart]= useState([]);
 
   // fetching data from api
   useEffect(() => {
@@ -24,12 +25,19 @@ function App() {
   }, []);
 
 
+
+  const addToCart=(product)=>{
+const newAr =[...cart, product]
+setCart(newAr)
+  }
+
+console.log(cart)
   return (
     <div className="container">
-      <Header />
+      <Header cart={cart}/>
 
         <Routes>
-          <Route path='/' element={<Home products={products} />} />
+          <Route path='/' element={<Home addToCart={addToCart} products={products} />} />
           <Route path='/categories' element={<Categories />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart />} />
